@@ -1,6 +1,5 @@
 import ImageCarousel from "./ImageCarousel";
 import Trending_home from "./Trending_home";
-import React, { useState, useEffect } from 'react';
 
 function Home () {
 
