@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'custom': ['Slagless', 'sans-serif'],  /* 'custom' is the name you'll use in your classes */
+        'custom': ['Slagless', 'sans-serif'],
+        'mysans': ['Poppins', 'Avenir']/* 'custom' is the name you'll use in your classes */
       },
     },
   },

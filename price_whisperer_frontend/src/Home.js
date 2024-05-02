@@ -1,6 +1,9 @@
 import ImageCarousel from "./ImageCarousel";
+import Trending_home from "./Trending_home";
+import React, { useState, useEffect } from 'react';
 
 function Home () {
+
     return (
         <div>
             <div className="relative p-4 bg-gray-200">
@@ -15,9 +18,8 @@ function Home () {
                     <p className={"text-transparent"}>hello</p>
                 </div>
             </div>
-            <div className={"bg-gray-200"}>
-                <h1>Heloooooo</h1>
-            </div>
+            <Trending_home/>
+
         </div>
     )
 }
