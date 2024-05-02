@@ -29,7 +29,7 @@ const Product = database.model('Product', productSchema, 'products');
 
 app.get('/', async (req, res) => {
   const products = await Product.find();
-  res.send(products[0].name);
+  res.send(products);
 });
 
 app.listen(3500, () => console.log('Server is running on port 3500'));
