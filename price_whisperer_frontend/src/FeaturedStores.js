@@ -25,17 +25,18 @@ function FeaturedStores () {
         <div>
             <div className={"bg-gray-200"}>
                 <h1 className={"font-custom font-bold text-center text-6xl p-4 border-black bg-gray-200"}>
-                    Featured Stores</h1><br/>
+                    Featured Stores</h1>
             </div>
 
 
             <div className={"bg-gray-200 flex flex-wrap justify-center px-4"}>
 
                 {stores.map(store => (
-                    <div key={store._id} className={"flex flex-col w-1/4 p-4 m-5 border-4 bg-white"}>
-                        <h2 className={"text-xl font-mysans tracking-wider text-center p-4"}>{store.slogan}</h2>
+                    <div key={store._id} className={"flex flex-col w-1/3 p-4 m-5 border-4 bg-white  hover:text-yellow-600 " +
+                        "hover:shadow-2xl hover:shadow-yellow-300"}>
+                        <h2 className={"text-2xl font-mysans tracking-wider text-center p-4"}>{store.slogan}</h2>
                         <img src={store.image} alt={store.title} className={"rounded-lg object-contain h-96"}/>
-                        {/*<p className={"text-lg tracking-wider text-center p-4"}>{product.price}</p>*/}
+                        <a className={"hover:underline font-mysans text-s text-black hover:text-blue-400 p-4"}>Visit Store</a>
                     </div>
                 ))}
             </div>

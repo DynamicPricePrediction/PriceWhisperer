@@ -2,7 +2,8 @@ import React from 'react';
 
 function AppFooter() {
     return (
-        <footer className="bg-gray-200 text-center text-s p-3 absolute  w-full">
+        <footer className="bg-gray-700 text-center text-s text-white p-3 absolute  w-full">
+            <br/>
             <div className="container mx-auto">
                 <p className="mb-3">
                     © 2024 PriceWhisperer. All rights reserved.
