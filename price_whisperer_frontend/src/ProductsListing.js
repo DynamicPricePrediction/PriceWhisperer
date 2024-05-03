@@ -27,28 +27,42 @@ function ProductsListing () {
     }, []);
 
     return (
-        <div className={"bg-gray-200 p-4"}>
+        <div className={"bg-gray-300 p-4"}>
             <div>
-                <h1>{id}</h1>
-                <h1>{title}</h1>
-                {/*<h1>Hello</h1>*/}
+                <h1 className={"font-custom text-center text-7xl p-4"}>{title}</h1>
             </div>
+
+            <div className={"bg-gray-300 flex flex-wrap justify-center px-4"}>
             {products_from_store.map(product => (
-                <div key={product.id} className={"flex w-3/4 ml-auto mr-4 p-4 m-5 border-4 items-center bg-white hover:text-yellow-600"}>
-                    <div className={"flex"}>
-                        <img src={product.image} alt={product.name} className={"rounded-lg object-contain w-60"}/>
+                <div key={product.id} className={"flex w-1/4 p-4 m-2 border-4 items-center bg-white hover:text-yellow-600 transition-opacity ease-in hover:shadow-2xl"}>
+                    <div className={"flex w-60 items-center justify-center"}>
+                        <img src={product.image} alt={product.name} className={"rounded-lg object-contain h-60"}/>
                     </div>
 
                     <div className={""}>
-                        <h2 className={"text-2xl font-mysans px-4"}>{product.title}</h2>
-                        <p className={"text-lg tracking-wider text-black px-4"}>{product.rating}</p>
-                        <p className={"text-lg tracking-wider text-black px-4"}>{product.no_ratings} ratings</p>
-                        <p className={"text-lg tracking-wider text-black px-4"}>{product.availability}</p>
-                        <p className={"text-lg text-green-600 tracking-wider px-4"}>{product.price}</p>
+                        <h2 className={"text-lg font-mysans px-4 py-2"}>{product.title}</h2>
+                        <div className={"flex items-center"}>
+
+                            <p className={"text-lg tracking-wider text-black py-1 pl-4"}
+                               style={{color: product.rating > 4 ? 'green' : (product.rating > 2 ? 'gold' : 'red')}}>{product.rating} / 5</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="24"
+                                 className={"fill-black"}>
+                                <path
+                                    d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
+                            </svg>
+
+                        </div>
+
+                        <p className={"text-md tracking-wider text-black py-1 px-4"}>{product.no_ratings} ratings</p>
+                        <p className={"text-md tracking-wider text-black py-1 px-4"}
+                           style={{color: product.availability === "In Stock" ? 'green' : (product.availability === "Out of Stock" ? 'red' : 'gold')}}>
+                            {product.availability}</p>
+                        <p className={"text-md text-green-600 tracking-wider py-1 px-4"}>{product.price}</p>
                     </div>
 
                 </div>
             ))}
+            </div>
 
         </div>
     );
