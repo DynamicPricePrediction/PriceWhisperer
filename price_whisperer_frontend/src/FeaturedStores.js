@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-
 function FeaturedStores () {
 
     const [stores, setStores] = useState([]);
@@ -35,8 +34,13 @@ function FeaturedStores () {
                     <div key={store._id} className={"flex flex-col w-1/3 p-4 m-5 border-4 bg-white  hover:text-yellow-600 " +
                         "hover:shadow-2xl hover:shadow-yellow-300"}>
                         <h2 className={"text-2xl font-mysans tracking-wider text-center p-4"}>{store.slogan}</h2>
+
                         <img src={store.image} alt={store.title} className={"rounded-lg object-contain h-96"}/>
-                        <a className={"hover:underline font-mysans text-s text-black hover:text-blue-400 p-4"}>Visit Store</a>
+
+                        <a className={"hover:underline font-mysans text-s text-black hover:text-blue-400 p-4"}
+                           href={`/productsList/${store._id}?title=${encodeURIComponent(store.title)}`}>
+                            Visit Store
+                        </a>
                     </div>
                 ))}
             </div>

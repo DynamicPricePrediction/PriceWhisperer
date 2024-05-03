@@ -6,10 +6,6 @@ const app = express();
 
 app.use(cors());
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World');
-// });
-
 const db = 'mongodb+srv://ramnaresh_ulaganathan:Naresh_447@cluster0.tyoy6yh.mongodb.net/?retryWrites=true&w=majority';
 
 const productSchema = new mongoose.Schema({
@@ -48,6 +44,16 @@ app.get('/trending', async (req, res) => {
 app.get('/storesFeatured', async (req, res) => {
   const featured_stores = await Stores.find({ use: { $in: ["featured"] }});
   res.send(featured_stores);
+});
+
+app.get('/fetchStoreProducts/:id', async (req, res) => {
+  const store = await Stores.find({ _id: req.params.id });
+  console.log(store);
+  const store_type = store[0]["title"];
+
+  const products = await Product.find({ type: store_type });
+  console.log("products: ", products)
+  res.send(products);
 });
 
 app.listen(4000, () => console.log('Server is running on port 4000'));
