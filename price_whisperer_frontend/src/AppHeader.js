@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "./logo.svg"
 import { Link } from "react-router-dom"
-import search from "./resources/search.svg"
 
 function AppHeader() {
     return (

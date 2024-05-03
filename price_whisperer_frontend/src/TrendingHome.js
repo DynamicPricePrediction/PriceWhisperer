@@ -1,19 +1,24 @@
 import React, {useEffect, useState} from "react";
 
-function Trending_home() {
+function TrendingHome() {
 
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        try {
-            fetch('http://localhost:4000/trending')
-                .then(response => response.json())
-                .then(data => setProducts(data));
-        }
-        catch (error) {
-            console.error('Error during GET request:', error);
-        }
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:4000/trending');
+                if (!response.ok) { // if HTTP-status is 404, 500 or such
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                setProducts(data);
+            } catch (error) {
+                console.error('Error during GET request:', error);
+            }
+        };
 
+        fetchData();
     }, []);
 
   return (
@@ -37,4 +42,4 @@ function Trending_home() {
   );
 }
 
-export default Trending_home;
+export default TrendingHome;

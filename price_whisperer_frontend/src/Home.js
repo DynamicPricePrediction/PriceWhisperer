@@ -1,5 +1,6 @@
 import ImageCarousel from "./ImageCarousel";
-import Trending_home from "./Trending_home";
+import TrendingHome from "./TrendingHome";
+import FeaturedStores from "./FeaturedStores";
 
 function Home () {
 
@@ -17,7 +18,8 @@ function Home () {
                     <p className={"text-transparent"}>hello</p>
                 </div>
             </div>
-            <Trending_home/>
+            <TrendingHome/>
+            <FeaturedStores/>
 
         </div>
     )

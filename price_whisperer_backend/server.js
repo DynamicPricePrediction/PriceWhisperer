@@ -18,6 +18,13 @@ const productSchema = new mongoose.Schema({
   image: String,
 });
 
+const storeSchema = new mongoose.Schema({
+  title: String,
+  slogan: String,
+  image: String,
+  use:  Array
+});
+
 mongoose.connect(db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -29,10 +36,18 @@ const database = mongoose.connection.useDb('test1');
 
 const Product = database.model('Product', productSchema, 'products');
 
+const Stores = database.model('Stores', storeSchema, 'stores');
+
 
 app.get('/trending', async (req, res) => {
   const products = await Product.find({ use: "trending" });
   res.send(products);
+});
+
+/* api to get all featured stores */
+app.get('/storesFeatured', async (req, res) => {
+  const featured_stores = await Stores.find({ use: { $in: ["featured"] }});
+  res.send(featured_stores);
 });
 
 app.listen(4000, () => console.log('Server is running on port 4000'));
